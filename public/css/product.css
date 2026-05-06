@@ -1,25 +1,25 @@
 * {
-    color: white;
+   
     font-family: dynaPuff;
 }
 .products {
     display: flex;
-    
+    justify-content: center;
     align-self: center;
     flex-wrap: wrap;
 }
 .card {
     
     
-    width: 40vw;
     background: linear-gradient(hsl(231, 63%, 32%),
-     hsl(231, 65%, 50%));
+    hsl(231, 65%, 50%));
     border: hsl(231, 65%, 50%) solid 2px;
     padding: 2rem;
     border-radius: 5rem;
     transition: transform .3s ease-out;
-    height: 70vw;
-    margin: 0.75rem;
+    height: 40vw;
+    max-width: 20vw;
+    margin: 1.2rem;
     &:hover {
         transform: scale(1.1);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -30,8 +30,9 @@
     width: 253px;
     height: 300px;
     border-radius: 2rem;
+    justify-self: center;
 }
-.card-el {
+.card-elements {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: 1.7fr .3fr;

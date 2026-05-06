@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "chaynik",
+    "price": 1500,
+    "image": "/image/image.png"
+  },
+  {
+    "id": 2,
+    "name": "fen",
+    "price": 2500,
+    "image": "/image/imagee.png"
+  },
+  {
+    "id": 3,
+    "name": "kabel",
+    "price": 1200,
+    "image": "/image/Гигачад.jpg"
+  },
+  {
+    "id": 4,
+    "name": "kover",
+    "price": 1488,
+    "image": "/image/ssss.jpg"
+  },
+  {
+    "id": 5,
+    "name": "polotence",
+    "price": 1488,
+    "image": "/image/mogger.jpg"
+  },
+  {
+    "id": 6,
+    "name": "asdasd",
+    "price": 12,
+    "image": "/image/45cdd26069f84dcbf52bfb5c1241ff2a"
+  }
+]
