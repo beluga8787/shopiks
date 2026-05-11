@@ -1,10 +1,14 @@
 import express from 'express'
 import fs from 'fs'
 import multer from 'multer'
+import mongoose from 'mongoose'
+import Product from './models/Product.js'
 
 const app = express()
 
 const upload = multer({dest: 'public/image'})
+
+await mongoose.connect('mongodb://localhost:27017/')
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -18,13 +22,14 @@ app.get('/', (req,res) => {
 })
 
 
-app.get('/products', (req, res) => {
-    const data = fs.readFileSync('data.json', 'utf-8')
-    const prods = JSON.parse(data)
+app.get('/products', async (req, res) => {
+    const myproducts = await Product.find()
+    
+
     res.render('products', {
         tomy: 'Producti',
         cssname: 'product',
-        products: prods
+        products: myproducts
     })
 })
 
@@ -42,19 +47,13 @@ app.get('/products/add', (req, res) => {
 })
 
 
-app.post('/products/add',upload.single('image'), (req,res) => {
-    const data = fs.readFileSync('data.json', 'utf-8')
-    const products = JSON.parse(data)
-
-    const newProd = {
-        id: products.length > 0 ? products.length + 1 : 1,
+app.post('/products/add',upload.single('image'), async (req,res) => {
+    await Product.create({
         name: req.body.name,
-        price: Number(req.body.price),
-        image: '/image/' + req.file.filename
-    }
-    
-    products.push(newProd)
-    fs.writeFileSync('data.json', JSON.stringify(products,null,2))
+        price: req.body.price,
+        image: '/image/' + req.file.filename,
+        description: req.body.description
+    })
 
     res.redirect('/products')
 })

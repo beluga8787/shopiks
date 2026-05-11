@@ -3,9 +3,10 @@
 <h2 id="add-h2">Add</h2>
 
 <form action="/products/add" method="post" enctype="multipart/form-data">
-    <input type="text" name="name" id="name" placeholder="name:">
-    <input type="number" name="price" id="price ">
-    <input type="file" accept=".png, .jpg" name="image" id="image">
+    <input type="text" name="name" id="name" placeholder="name:" required>
+    <input type="number" name="price" id="price " placeholder="price:" required>
+    <textarea name="description" id="description" placeholder="description:" required></textarea>
+    <input type="file" accept=".png, .jpg" name="image" id="image" required>
     <input type="submit" id="id-prod-btn" value="add money">
 </form>
 
